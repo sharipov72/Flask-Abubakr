@@ -1,0 +1,23 @@
+{% if user != current_user %}
+
+    {% if not current_user.is_following(user) %}
+
+        <button class="btn btn-success"
+                onclick="followUser('{{ user.username }}')">
+
+            {{ _('Follow') }}
+
+        </button>
+
+    {% else %}
+
+        <button class="btn btn-danger"
+                onclick="unfollowUser('{{ user.username }}')">
+
+            {{ _('Unfollow') }}
+
+        </button>
+
+    {% endif %}
+
+{% endif %}

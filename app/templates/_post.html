@@ -1,0 +1,33 @@
+<div class="card mb-3">
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-auto">
+                <img src="{{ post.author.avatar(70) }}"
+                     class="rounded">
+            </div>
+
+            <div class="col">
+
+                <h5 class="card-title">
+                    <a href="{{ url_for('user',
+                    username=post.author.username) }}">
+                        {{ post.author.username }}
+                    </a>
+                </h5>
+
+                <p class="card-text">
+                    {{ post.body }}
+                </p>
+
+                <small class="text-muted">
+                    {{ _('Posted') }}
+                    {{ moment(post.timestamp).fromNow() }}
+                </small>
+
+            </div>
+        </div>
+
+    </div>
+</div>

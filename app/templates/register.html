@@ -7,9 +7,9 @@
         <div class="card">
             <div class="card-body">
 
-                <h2 class="card-title mb-4">Sign In</h2>
+                <h2 class="card-title mb-4">Register</h2>
 
-                <form action="" method="post" novalidate>
+                <form action="" method="post">
                     {{ form.hidden_tag() }}
 
                     <div class="mb-3">
@@ -17,6 +17,15 @@
                         {{ form.username(class="form-control", size=32) }}
 
                         {% for error in form.username.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label") }}
+                        {{ form.email(class="form-control", size=64) }}
+
+                        {% for error in form.email.errors %}
                         <div class="text-danger">{{ error }}</div>
                         {% endfor %}
                     </div>
@@ -30,20 +39,19 @@
                         {% endfor %}
                     </div>
 
-                    <div class="form-check mb-3">
-                        {{ form.remember_me(class="form-check-input") }}
-                        {{ form.remember_me.label(class="form-check-label") }}
+                    <div class="mb-3">
+                        {{ form.password2.label(class="form-label") }}
+                        {{ form.password2(class="form-control", size=32) }}
+
+                        {% for error in form.password2.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                        {% endfor %}
                     </div>
 
-                    <div class="mb-3">
-                        {{ form.submit(class="btn btn-primary") }}
+                    <div>
+                        {{ form.submit(class="btn btn-success") }}
                     </div>
                 </form>
-
-                <p>
-                    New User?
-                    <a href="{{ url_for('register') }}">Click to Register!</a>
-                </p>
 
             </div>
         </div>
